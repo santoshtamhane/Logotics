@@ -1,0 +1,145 @@
+ion-content {
+  --background: var(--ion-color-light);
+}
+
+ion-grid {
+  padding: 5;
+  margin: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ion-row {
+  flex: 1;
+}
+p {
+  margin: 0;
+  padding: 1.5;
+}
+.col1 {
+  margin-left: 2%;
+  height: 100%;
+  text-align: left;
+}
+.section-header {
+  color: var(--ion-color-medium);
+  font-size: 150%;
+  font-weight: bold;
+}
+.label-1_2x {
+  font-size: 1em !important;
+  margin-top: 1%;
+  justify-content: center;
+  color: var(--ion-color-secondary);
+}
+.label-1_2x_middle {
+  font-size: 1em !important;
+  margin-top: 1%;
+  justify-content: center;
+  color: var(--ion-color-secondary);
+}
+
+.label-2x {
+  font-size: 1.5em !important;
+  font-weight: bold;
+  color: var(--ion-color-dark);
+}
+.label-2x_danger {
+  font-size: 1.5em !important;
+  font-weight: bold;
+  color: var(--ion-color-danger);
+}
+.label-2x_warning {
+  font-size: 1.5em !important;
+  font-weight: bold;
+  color: var(--ion-color-warning);
+  text-align: center;
+}
+.label-2x_success {
+  font-size: 1.5em !important;
+  font-weight: bold;
+  color: var(--ion-color-success);
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--ion-color-medium);
+  margin: 1em 0;
+  padding: 0;
+}
+.left-top {
+  background-color: var(--ion-color-white);
+  margin-left: 2%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+border: 1px solid var(--ion-color-medium);
+  .left-top-row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+}
+.right-top {
+  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .right-top-row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  ion-col {
+    height: 100%;
+    display: flex;
+
+    flex-direction: column;
+    .header-row {
+      flex: 1 !important;
+     
+      color: var(--ion-color-dark);
+      // border-bottom: 1px solid var(--ion-color-medium);
+      ion-col{
+        color: var(--ion-color-medium);
+      }
+    }
+    .content-row {
+      flex: 6 !important;
+      // border-right: 1px solid var(--ion-color-medium);
+    }
+  }
+  ion-toolbar{
+  ion-item{
+    --ion-background-color: transparent;
+    --background: transparent;
+  }
+}
+div[scrollx="true"],
+    div[scrolly="true"] {
+      position: relative;
+      overflow: hidden;
+    }
+
+    div[scrollx="true"] {
+      overflow-x: auto;
+    }
+
+    div[scrolly="true"] {
+      overflow-y: auto;
+    }
+    #myFixZone {
+      height: 325px;
+    }
+ngx-charts, text { fill: #944747; }
+
+}; // EOF

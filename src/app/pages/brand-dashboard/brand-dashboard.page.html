@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" >
+        <ion-back-button color="primary"
+          defaultHref="/brand-list"
+          routerDirection="backward"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-row >
+      <ion-col style="text-align: left;">
+        <ion-title color="primary"><span><img
+          [src]=logo
+          height="60"
+          style="vertical-align:middle"
+        />&nbsp;&nbsp;&nbsp;&nbsp; <strong>{{brandid}}</strong></span></ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row class = 'top-row'>
+  <ion-col class= "card1">
+    <ion-row style="margin-bottom: 1%;" class="ion-justify-content-center">
+            <ion-label color="secondary">TOTAL EXPOSURE DURATION</ion-label>
+    </ion-row>
+    <ion-row class="ion-justify-content-center" style="margin-bottom:2%">
+      <ion-label class="label-2x">{{totalDuration|durationFormat: 's':'hhmmss'}}</ion-label>
+    </ion-row>
+    <ion-row class="ion-justify-content-center"  text-wrap>
+      <ion-note color="secondary">hh:mm:ss</ion-note></ion-row>
+ 
+  
+</ion-col>
+
+<ion-col class= "card3">
+  <ion-row style="margin-bottom: 1%;" class="ion-justify-content-center">
+          <ion-label color="tertiary">AVG SHARE OF DURATION</ion-label>
+  </ion-row>
+  <ion-row class="ion-justify-content-center" style="margin-bottom:2%">
+    <ion-label class="label-2x">{{avgShare| percent}}</ion-label>
+  </ion-row>
+  <ion-row class="ion-justify-content-center"  text-wrap>
+    <ion-note color="tertiary">PER EVENT</ion-note></ion-row>
+
+
+</ion-col>
+<ion-col class= "card2">
+  <ion-row style="margin-bottom: 1%;" class="ion-justify-content-center">
+          <ion-label color="secondary">EXPOSURE EFFECTIVENESS INDEX</ion-label>
+  </ion-row>
+  <ion-row class="ion-justify-content-center" style="margin-bottom:2%">
+    <ion-label class="label-2x">{{avgIndex|number:'2.0-0'}}</ion-label>
+  </ion-row>
+  <ion-row class="ion-justify-content-center"  text-wrap>
+    <ion-note color="secondary"> Average EEI</ion-note></ion-row>
+</ion-col>
+</ion-row>
+<ion-row class="bottom-row" >
+  <ion-col class="trend_chartcard">
+    <ion-row class="top-row">
+      <ion-col size=4>
+      </ion-col>
+      <ion-col size="4" >
+        {{TrendTitle | uppercase}}
+      </ion-col>
+      <ion-col size="4">
+        <ion-button
+        (click)="changeTrendViewBack()"
+        fill="clear"
+        size="large"
+        color="dark"
+      >
+        <ion-icon name="arrow-dropleft"></ion-icon>
+      </ion-button>
+      <ion-button
+        (click)="changeTrendViewFwd()"
+        fill="clear"
+        size="large"
+        color="dark"
+      >
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="bottom-row" style=" text-align: center;">
+      <canvas #trendCanvas2></canvas>
+      
+    </ion-row>
+    
+  </ion-col>
+</ion-row>
+   
+</ion-grid>
+</ion-content>

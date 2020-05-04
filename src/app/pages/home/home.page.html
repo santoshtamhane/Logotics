@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Event List</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon name="menu">Menu</ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!isLogged">Session Time Out. Please relogin</div>
+  <div *ngIf="isLogged">
+    <ion-searchbar
+    [formControl]="searchControl"
+    (ionChange)="onSearchInput()"
+  ></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+    <ion-list>
+      <ion-item
+        *ngFor="let event of eventList |async let even = even"
+        (click)="openDashBoard(event.eventid,event.Event, event.Date, event.url)"
+        style="cursor:pointer" 
+        detail="true"
+      >
+        <ion-thumbnail slot="start"><img src="{{event.url}}"/></ion-thumbnail>
+        <ion-label> <h1>{{event.Event}} </h1>
+          <h2>
+            <ion-text color="secondary"> Category: {{event.Category}}</ion-text>
+          </h2></ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- For Grouping by event
+    <ion-item-group *ngFor="let group of eventList |async| eventGroupBy: 'Category'">
+        <ion-item-divider >
+            <h2><strong><ion-text color="dark">{{ group.ikey}}</ion-text></strong></h2>
+        </ion-item-divider>
+          
+        <ion-item *ngFor="let event of group.value" (click)="openDashBoard(event.eventid,event.Event, event.Date, event.url)" detail="true">
+      
+          <ion-thumbnail slot="start"><img src={{event.url}}></ion-thumbnail> 
+          <ion-label><strong>  {{event.Event}}</strong></ion-label>
+</ion-item>
+    </ion-item-group>-->
+
+    <!-- For grouping by event month
+     <ion-item-group *ngFor="let group of eventList |async| eventGroupBy: 'Date'">
+               <ion-item-divider >
+                   <ion-text color="light">{{ group.ikey|date:'MMMM yyyy'}}</ion-text>
+               </ion-item-divider>
+               <ion-item *ngFor="let event of group.value" (click)="openDashBoard(event.eventid,event.Event, event.Date)">
+                   <ion-avatar><img src={{event.url}}></ion-avatar> 
+                   &nbsp;&nbsp;
+                     <h2><strong>{{event.Event}}</strong></h2>
+
+       
+               </ion-item>
+           </ion-item-group>
+          -->
+  </div>
+</ion-content>

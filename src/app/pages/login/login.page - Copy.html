@@ -1,0 +1,31 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <!-- <img src='/assets/letterP1.png'> -->
+  
+  <form [formGroup]="loginForm" novalidate >
+   <img src='/assets/imgs/logoticsB2.png'> 
+  <ion-item>
+  <ion-label position ="stacked" >USER ID</ion-label>
+  <ion-input formControlName="email" type="email" ></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label position = "stacked">PASSWORD</ion-label>
+  <ion-input formControlName="password" type="password" ></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="userLogin(loginForm)" color="danger"
+  [disabled]="!loginForm.valid">
+  Login
+  </ion-button>
+
+
+  <ion-button expand="block" fill="clear" routerLink="/signup" color="danger">
+  Sign Up for a new account
+  </ion-button>
+   <!-- <ion-button expand="block" fill="clear" routerLink="/password-reset" color="light">
+  I forgot my password
+  </ion-button> -->
+    </form>
+</ion-content>

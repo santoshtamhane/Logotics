@@ -1,0 +1,102 @@
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+--ion-toolbar-text-color: white;    
+}
+        ion-content {
+         
+        ion-grid {
+            
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .left{
+          
+
+          background: linear-gradient(135deg,  #3a3738FF  0%, #3a3738bd 100%), url('../../../assets/imgs/Dashboard-back1.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: bottom right;
+            .welcome{
+  position:absolute;
+  top:30%px;
+  font-size:200%;
+  
+}
+.welcometext{
+  position:absolute;
+  top:35%;
+  font-size:1.2em;
+  
+}
+.welcometext1{
+  position:absolute;
+  top:55%;
+  font-size:1.2em;
+  p{
+  color:var(--ion-color-warning);
+  }
+}
+}
+        .right{
+          background: linear-gradient(270deg,  #fcf6f5FF  0%, #fcf6f5FF 100%);
+           text-align: center;
+          .welcome{
+            position:absolute;
+            top:25%;
+            font-size:200%;
+            color:var(--ion-color-tertiary);
+           text-align: left;
+           justify-content: left;
+          }
+        }
+        ion-col {
+            flex: 1;
+
+        }
+           form {
+            
+position: relative;
+    top:20%;
+    ion-card{
+    background-color: var(--ion-color-white);  
+    // backdrop-filter: blur(3px);  
+    }     
+          }    
+        }   
+        
+   
+ion-item {
+    --background: transparent;
+
+}
+
+img{
+  //width: 65%;
+  margin: auto;
+  display: block;
+
+}       
+ion-button{
+  color:var(--ion-color-tertiary);
+}
+   h2{
+     text-align:justify;
+font-size: 1.2em;
+color: var(--ion-color-light);
+   }
+
+  
+  h1 {
+    
+    color: var(--ion-color-tertiary);
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+
+  }
+    h4{
+        text-align: center;
+        color: #fff;  
+    }

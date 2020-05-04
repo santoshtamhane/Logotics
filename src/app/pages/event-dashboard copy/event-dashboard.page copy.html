@@ -1,0 +1,534 @@
+
+
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start" color="dark">
+        <ion-back-button
+          defaultHref="/home"
+          routerDirection="backward"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-row >
+      <ion-col style="text-align: left;">
+        <ion-title color="light"><span><img
+          [src]=ikey
+          height="60"
+          style="vertical-align:middle"
+        />&nbsp;&nbsp;&nbsp;&nbsp; <strong>{{event}}</strong></span></ion-title>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col style="text-align: right;">
+            <img
+          [src]=logo
+          height="60"
+          style="vertical-align:middle"
+        />
+          </ion-col>
+          <ion-col style="text-align: left;">
+            <ion-item style="background-color: transparent;">
+              <ion-label color="primary" position="stacked">Change </ion-label>
+            <ion-select
+            placeholder="Brands"
+            [(ngModel)]="selectedBrand"
+            [compareWith]="compareWith"
+            (ionChange)="changeBrand(selectedBrand)"
+          ><ion-select-option *ngFor="let brand of brandList | async">{{brand.Name}}</ion-select-option>
+          </ion-select>
+          </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-row>
+    <ion-col size="2" class="col1">
+      <ion-text class="section-header">KEY METRICS</ion-text>
+    </ion-col>
+   
+  </ion-row>
+  <ion-grid>
+    <ion-row>
+    <ion-col style="display:flex" size=4>
+      <ion-card *ngIf="!seeRate" style= "background-color: var(--ion-color-white);">
+        <ion-card-header style= "background-color: var(--ion-color-primary-shade);">
+          <ion-card-title>MEDIA VALUE EQUIVALENT MVE</ion-card-title></ion-card-header>
+        <ion-card-content>
+          <ion-row>
+        
+            <ion-label class="label-2x">
+            {{avgIndex*totalDuration*tvrate/(30*10000000) |currency
+              :'INR'}}</ion-label>
+            <ion-label> crores*</ion-label>
+            </ion-row>
+        <ion-row>
+          <ion-button
+            fill="outline"
+            color="dark"
+            size="small"
+            (click)="setRate()"
+            >Change TV Ad Rate</ion-button>
+          </ion-row>
+        <ion-row style="margin-bottom:2%" text-wrap>
+          <ion-note>*TV Advt Rate: {{tvrate/100000|currency :'INR'}} lakhs per 30 sec</ion-note>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-row class="left-top-row" *ngIf="seeRate">
+        <ion-label class="label-1_2x">TV Rate for 30 sec slot</ion-label>
+        <ion-row class="ion-justify-content-center" style="margin:5%;">
+          <ion-label class="label-2x">
+            <ion-item>
+              <ion-input [(ngModel)]="tvrate"></ion-input>
+            </ion-item> </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-button (click)="setRate()" fill="clear" size="small">
+            <ion-icon
+              slot="icon-only"
+              name="arrow-round-back"
+              color="danger">
+            </ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+    <ion-col style="display:flex" size=4>
+      <ion-card style="background-color: var(--ion-color-white);">
+      <ion-card-header style="background-color: var(--ion-color-secondary-shade);">
+     
+        <ion-card-title >TOTAL EXPOSURE DURATION</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label class="label-2x">{{totalDuration|durationFormat: 's':'hhmmss'}}</ion-label>
+         <ion-row> <ion-note>hh:mm:ss</ion-note></ion-row>
+        </ion-card-content>
+  </ion-card>
+  </ion-col>
+
+    <ion-col style="display:flex" size=4 text-wrap>
+      <ion-card style= "background-color: var(--ion-color-white);">
+        <ion-card-header style= "background-color: var(--ion-color-tertiary-shade);">
+          <ion-card-title>
+            EXPOSURE EFFECTIVENESS INDEX EEI
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row class="ion-justify-content-center" style="margin:5%;">
+            <ion-label class="label-2x_danger" *ngIf="avgIndex <= 25">
+              {{this.avgIndex | number:'2.0-0'}}</ion-label>
+              <ion-label class="label-2x_warning" *ngIf="avgIndex > 25 && avgIndex<=35">
+                {{this.avgIndex | number:'2.0-0'}}</ion-label>
+                <ion-label class="label-2x_success" *ngIf="avgIndex >36">
+                  {{this.avgIndex | number:'2.0-0'}}</ion-label>
+            </ion-row>
+            <ion-label *ngIf="avgIndex <= 25">(IN THE LOW RANGE)</ion-label>
+            
+            <ion-label  *ngIf="avgIndex > 25 && avgIndex<=35">(IN THE MEDIUM RANGE)</ion-label>
+            
+              <ion-label  color="#a0d46869" *ngIf="avgIndex >36">(IN THE HIGH RANGE)</ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="2" style="margin-right:2%;background-color: var(--ion-color-white);">
+      <ion-row class="header-row">BRAND PERFORMANCE</ion-row>
+      <ion-row class="right-top-row">
+        <ion-label class="label-1_2x">EXPOSURE QUALITY</ion-label>
+        <p>
+          <ngx-gauge
+            type="full"
+            [value]="qguage"
+            max="100"
+            size="90"
+            append="%"
+            [thresholds]="{
+          '0': {color: 'red'},
+          '50': {color: 'yellow'},
+          '70': {color: 'green'}
+        }"
+          >
+          </ngx-gauge>
+        </p>
+      </ion-row>
+      <hr />
+      <ion-row class="right-top-row">
+        <ion-label class="label-1_2x">EXPOSURE PROMINENCE</ion-label>
+        <p>
+          <ngx-gauge
+            type="full"
+            [value]="pguage"
+            max="40"
+            size="90"
+            append="%"
+            [thresholds]="{
+          '0': {color: 'red'},
+          '8': {color: 'yellow'},
+          '15': {color: 'green'}
+        }"
+          ></ngx-gauge>
+        </p>
+      </ion-row>
+      <hr />
+      <ion-row class="right-top-row">
+        <ion-label class="label-1_2x">SHARE OF DURATION</ion-label>
+        <p>
+          <ngx-gauge
+            type="full"
+            [value]="sguage"
+            max="20"
+            size="90"
+            append="%"
+            [thresholds]="{
+          '0': {color: 'red'},
+          '5': {color: 'yellow'},
+          '8': {color: 'green'}
+        }"
+          ></ngx-gauge>
+        </p>
+      </ion-row>
+    </ion-col>
+    <ion-col size=9 style="display:flex">
+      <ion-col size="4" style= "background-color:var(--ion-color-white);"*ngIf="!seeVenue">
+        <ion-row class="header-row">VENUE PERFORMANCE</ion-row>
+        <ion-row class="content-row"><canvas #v1Canvas></canvas></ion-row>
+        <ion-row class="header-row">
+          <ion-col size="3">
+            <span
+              ><ion-button
+                (click)="changeVenueViewBk()"
+                fill="outline"
+                size="small"
+                color="medium"
+              >
+                <ion-icon name="arrow-dropleft"></ion-icon>
+              </ion-button>
+              <ion-button
+                (click)="changeVenueViewFwd()"
+                fill="outline"
+                size="small"
+                color="medium"
+              >
+                <ion-icon name="arrow-dropright"></ion-icon> </ion-button></span>
+          </ion-col>
+          <ion-col size="6" style="text-align: center"></ion-col>
+          <ion-col size="3">
+            <ion-button
+              style="display:flex"
+              color="medium"
+              (click)="setVenue()"
+              fill="clear"
+              size="small"
+              style="text-decoration: underline"
+            >
+              TABLE VIEW
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col
+      size="4"
+      style="background-color: #fff; display:flex"
+      *ngIf="!seeAsset"
+    >
+      <ion-row class="header-row">ASSET PERFORMANCE</ion-row>
+      <ion-row class="content-row"><canvas #v6Canvas></canvas></ion-row>
+      <ion-row class="header-row">
+        <ion-col size="4">
+        </ion-col>
+        <ion-col size="5" style="text-align: center"> </ion-col>
+        <ion-col size="3">
+          <ion-button
+            color="medium"
+            (click)="setAsset()"
+            fill="clear"
+            size="small"
+            style="text-decoration: underline"
+          >
+            TABLE VIEW
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col>
+      <ion-col size="4">
+       
+        <ion-row style="background-color: #fff" class="header-row">
+          <ion-col size="9">
+            {{TrendTitle | uppercase}}
+            <br/><ion-note>Last 7 days</ion-note>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button
+              color="dark"
+              (click)="openModal(selectedBrand)"
+              fill="clear"
+              size="small"
+              style="text-decoration: underline;"
+            >
+              VIEW COMPLETE TREND
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row class="content-row" style="background-color: #fff; text-align: center">
+          <canvas #trendCanvas2></canvas>
+        </ion-row>
+       <ion-row style="background-color: #fff" class="header-row">
+        <ion-button
+          (click)="changeTrendViewBack()"
+          fill="outline"
+          size="small"
+          color="medium"
+        >
+          <ion-icon name="arrow-dropleft"></ion-icon>
+        </ion-button>
+        <ion-button
+          (click)="changeTrendViewFwd()"
+          fill="outline"
+          size="small"
+          color="medium"
+        >
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </ion-button>
+      </ion-row>
+        
+      </ion-col>
+
+
+    </ion-col>
+    </ion-col>
+    
+  </ion-row>
+  
+    <ion-row>
+    
+      <!-- ***************************Right Top**************-->
+      <ion-col size="9" class="right-top" style="margin-left:2%; margin-right:0;padding-right:0;">
+        <ion-row>
+
+
+          
+
+          <ion-col *ngIf="seeVenue">
+            <ion-list>
+              <ion-list-header>
+                <ion-row style="background-color: #f2f4f6;">
+                  <ion-col
+                    size="4"
+                    style="text-align: left; border-right: 1px solid #fff"
+                    ><ion-note color="dark">VENUE</ion-note></ion-col>
+                  <ion-col
+                    size="2"
+                    style="text-align: center; border-right: 1px solid #fff"
+                    ><ion-note color="dark">Durn.</ion-note></ion-col>
+                  <ion-col
+                    size="2"
+                    style="text-align: center; border-right: 1px solid #fff"
+                    ><ion-note color="dark">E.E.I</ion-note></ion-col>
+                  <ion-col
+                    size="3"
+                    style="text-align: center; border-right: 1px solid #fff"
+                    ><ion-note color="dark">M.V.E (cr.)</ion-note></ion-col>
+                  <ion-col size="1"></ion-col>
+                </ion-row>
+              </ion-list-header>
+              <ion-item *ngFor="let e of sortedMVArr">
+                <ion-row ion-no-padding>
+                  <ion-col size="4" style="text-align: left;">
+                    <ion-text
+                      (click)="gotoVenue(e.venue)"
+                      color="medium"
+                      style="cursor:pointer;text-decoration: underline">{{e.venue}}</ion-text>
+                  </ion-col>
+                  <ion-col size="2" style="text-align: right"><ion-text color="dark">{{e.Duration | number:'1.0-0'}}s</ion-text>
+                    </ion-col>
+                  <ion-col size="2" style="text-align: center"><ion-text color="dark">{{e.EEI | number:'2.0-0'}}</ion-text>
+                    </ion-col>
+                  <ion-col size="3" style="text-align: right"><ion-text color="dark">{{e.MV | currency:'INR'}}</ion-text>
+                  </ion-col>
+
+                  <ion-col size="1" *ngIf="e.EEI>36">
+                    <ion-icon name="happy" color="success"></ion-icon>
+                  </ion-col>
+                  <ion-col size="1" *ngIf="e.EEI>25 && e.EEI <=36">
+                    <ion-icon name="happy" color="warning"></ion-icon>
+                  </ion-col>
+                  <ion-col size="1" *ngIf="e.EEI<25">
+                    <ion-icon name="sad" color="danger"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+            <ion-row>
+              <ion-col size="10">
+                <ion-text color="medium"><strong>VENUE PERFORMANCE</strong></ion-text>
+                <p>
+                  <ion-note>Click on venue name for venue specific information</ion-note>
+                </p>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button
+                  color="tertiary"
+                  (click)="setVenue()"
+                  fill="clear"
+                  size="small"
+                  style="text-decoration: underline"
+                >
+                  <ion-icon
+                    slot="icon-only"
+                    name="arrow-round-back"
+                    color="danger"
+                  ></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+
+          <ion-col *ngIf="seeAsset">
+            <ion-list>
+              <ion-list-header>
+                <ion-row style="background-color: #f2f4f6;">
+                  <ion-col
+                    size="4"
+                    style="text-align: left; border-right: 1px solid #fff"
+                    ><ion-note color="dark">Asset</ion-note></ion-col
+                  >
+                  <ion-col
+                    size="2"
+                    style="text-align: center; border-right: 1px solid #fff"
+                    ><ion-note color="dark">Durn.</ion-note></ion-col
+                  >
+                  <ion-col
+                    size="2"
+                    style="text-align: center; border-right: 1px solid #fff"
+                    ><ion-note color="dark">E.E.I</ion-note></ion-col
+                  >
+                  <ion-col
+                    size="3"
+                    style="text-align: center; border-right: 1px solid #fff"
+                    ><ion-note color="dark">M.V.E (cr.)</ion-note></ion-col
+                  >
+                  <ion-col size="1"></ion-col>
+                </ion-row>
+              </ion-list-header>
+              <ion-item *ngFor="let e of sortedastArr">
+                <ion-row ion-no-padding>
+                  <ion-col size="4" style="text-align: left;">
+                    <ion-text
+                      (click)="gotoAsset(e.Category)"
+                      color="medium"
+                      style="cursor:pointer;text-decoration: underline"
+                      >{{e.Category}}</ion-text>
+                  </ion-col>
+                  <ion-col size="2" style="text-align: right"><ion-text color="dark">{{e.Duration | number:'1.0-0'}}s</ion-text
+                    ></ion-col>
+                  <ion-col size="2" style="text-align: center"
+                    ><ion-text color="dark"
+                      >{{e.EEI | number:'2.0-0'}}</ion-text>
+                      </ion-col>
+                  <ion-col size="3" style="text-align: right"
+                    ><ion-text color="dark"
+                      >{{e.MV | currency:'INR'}}</ion-text
+                    ></ion-col>
+
+                  <ion-col size="1" *ngIf="e.EEI>36">
+                    <ion-icon name="happy" color="success"></ion-icon>
+                  </ion-col>
+                  <ion-col size="1" *ngIf="e.EEI>25 && e.EEI <=36">
+                    <ion-icon name="happy" color="warning"></ion-icon>
+                  </ion-col>
+                  <ion-col size="1" *ngIf="e.EEI<25">
+                    <ion-icon name="sad" color="danger"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+            <ion-row>
+              <ion-col size="10">
+                <ion-card-title
+                  ><ion-text color="medium"
+                    ><strong>ASSET PERFORMANCE</strong></ion-text
+                  ></ion-card-title>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button
+                  color="tertiary"
+                  (click)="setAsset()"
+                  fill="clear"
+                  size="small"
+                  style="text-decoration: underline"
+                >
+                  <ion-icon
+                    slot="icon-only"
+                    name="arrow-round-back"
+                    color="danger"
+                  ></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <!--***********Row 2 *****************-->
+    <ion-row style="margin-top:1%;margin-left:2%;padding-right: 0;">
+            <ion-col size="5" style="margin-left:2% ; margin-right:0; ">
+        <ion-text class="section-header">BRAND INSIGHTS</ion-text>
+        <ion-row>
+          <ion-row
+            justify-content-left
+            style="background-color: var(--ion-color-light-shade);color:var(--ion-color-darkgrey)"
+            text-wrap>
+            <ul>
+              <li>
+                {{this.selectedBrand}} received typically
+                <strong> {{this.durationpermatch| number:'1.0-0'}} secs </strong> exposure per match.
+              </li>
+              <li>
+                The duration ranged between {{maxDurn}} secs and {{minDurn}}
+                secs over {{matchcount}} matches
+              </li>
+              <li>
+                Overall each match earned an average media value of
+                <strong>
+                  {{avgIndex*durationpermatch*tvrate/(30*10000000) |currency:'INR'}}</strong> crores
+              </li>
+              <li>
+                Over {{matchcount}} matches, the brand earned media value
+                between a max of {{maxMVE | currency:'INR'}} crores and min of
+                {{minMVE | currency:'INR'}} crores
+              </li>
+            </ul>
+          </ion-row>
+        </ion-row>
+       <!-- <ion-row style="margin-top:5%">
+          <span><img
+              [src]="logo"
+              
+              width="75%"
+              style="vertical-align:middle"
+          /></span>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked">Change </ion-label>
+            <ion-select
+              style="max-width : 100%"
+              placeholder="Brands"
+              [(ngModel)]="selectedBrand"
+              [compareWith]="compareWith"
+              (ionChange)="changeBrand(selectedBrand)"
+            >
+              <ion-select-option *ngFor="let brand of brandList | async">{{brand.Name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-row> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

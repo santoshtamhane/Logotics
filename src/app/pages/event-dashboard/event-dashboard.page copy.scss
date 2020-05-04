@@ -1,0 +1,237 @@
+ion-content {
+  --background: var(--ion-color-light);
+}
+ion-toolbar{
+  --background: var(--ion-color-tertiary);
+}
+ion-grid {
+  height:100%;
+  display: flex;
+ flex-direction: column;
+ 
+}
+.top-row{
+  flex:1;
+  text-align: center;
+  margin-bottom: 0;
+ padding-bottom:0;
+}
+.middle-row{
+  flex:2;
+  margin-bottom: 0;
+ padding-bottom: 0;
+
+}
+.label-2x {
+  font-size: 3.5em !important;
+  font-weight: bold;
+  color:  var(--ion-color-white);
+  text-align: center;
+}
+.label-2x_danger {
+  font-size: 2em !important;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
+.label-2x_warning {
+  font-size: 2em !important;
+  font-weight: bold;
+  color: yellow;
+  text-align: center;
+}
+.label-2x_success {
+  font-size: 2em !important;
+  font-weight: bold;
+  color: green;
+  text-align: center;
+}
+
+.card1{
+  // background: linear-gradient(300deg, #a1c4fd 0%, #c2e9fbbd 100%)
+ background: linear-gradient(135deg,  #f03625bd 0%, #f03625 100%), url('../../../assets/imgs/money.svg');
+ background-size: contain;
+ background-repeat: no-repeat;
+ background-position: bottom right;
+ margin-left: 1%;
+  border-right:2px solid var(--ion-color-white);
+  justify-content: center;
+   text-align: center;
+   font-weight: bold;
+}
+.card2{
+  // background: #00a651ed;
+  background:  linear-gradient(135deg,#f03625bd 0%, #f03625 100%), url('../../../assets/imgs/hourglass.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  margin-left: 1%;
+  margin-right: 1%;
+   border-left:1px solid var(--ion-color-white);
+   border-right:2px solid var(--ion-color-medium);
+    justify-content: center;
+    text-align: center;
+ font-weight: bold;
+ 
+ }
+ .card3{
+  border-right:1px solid var(--ion-color-white);
+  background: #f03625;
+  background: linear-gradient(135deg,#f03625bd 0%, #f03625 100%), url('../../../assets/imgs/wristwatch.svg');
+  margin-left: 1%;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+   justify-content: center;
+   text-align: center;
+   font-weight: bold;
+   
+}
+.card1_leftmost{
+ // background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1bd 100%), url('../../../assets/imgs/football-tv.svg');
+ background: var(--ion-color-white);
+ background: linear-gradient(135deg,#fff 0%, #ffffffbd 95%, #f03625 100%);
+  
+   margin-left: 1%;
+   justify-content: center;
+   text-align: center;
+   border:1px solid #f03625;
+font-weight: bold;
+color:#f03625;
+}
+.card1_left{
+  // background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1bd 100%), url('../../../assets/imgs/football-tv.svg');
+  background: var(--ion-color-white);
+  background: linear-gradient(135deg,#fff 0%, #ffffffbd 95%, #f03625 100%);
+  margin-left: 1%;
+    justify-content: center;
+    text-align: center;
+    border:1px solid #f03625;
+ font-weight: bold;
+ color:#f03625;
+ }
+.card1_middle{
+  //background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1bd 100%), url('../../../assets/imgs/resolution.svg');
+  background:var(--ion-color-white);
+  background: linear-gradient(135deg,#fff 0%, #ffffffbd 95%, #f03625 100%);
+  color:#f03625;
+   justify-content: center;
+   text-align: center;
+   margin-left: 1%;
+   margin-right: 1%;
+   font-weight: bold;
+   border:1px solid #f03625;
+
+}
+.card1_right{
+  //background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1bd 100%), url('../../../assets/imgs/clock.svg');
+  background:var(--ion-color-white);
+  background: linear-gradient(135deg,#fff 0%, #ffffffbd 95%, #f03625 100%);
+   justify-content: center;
+   text-align: center;
+   color:#f03625;
+   font-weight: bold;
+   border:1px solid #f03625;
+margin-right:1%;
+margin-left:1%;
+}
+
+
+.card2_2{
+  //background-image: linear-gradient(to bottom, #89f7fe 0%, #66a6ff 100%);
+  background-image: linear-gradient(165deg, #a1c4fd 0%, #c2e9fb 100%);
+  margin-left: 1%;
+}
+.card2_3{
+  background: #FDC830bd;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(210deg, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(210deg, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+  background: #FDFC47;  /* fallback for old browsers */
+background: -webkit-linear-gradient(300deg, #24FE41, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(300deg, #24FE41, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.card4{
+  //background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+  //background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+   background-image:linear-gradient(120deg, #f0362541 0%, #f0362569 95%, #f03625ed 100%);
+ // background:var(--ion-color-white);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  margin-right: 1%;
+  border: 1px solid #f03625;
+  color:var(--ion-color-darkgrey);
+}
+.hero_card{
+
+  background-image:linear-gradient(120deg, #ffffffed 0%, #f0362569 95%, #f03625 100%), url('../../../assets/imgs/soccer.jpg');
+  // background:var(--ion-color-white);
+   background-size: cover contain;
+   background-repeat: no-repeat;
+   background-position: center center;
+   margin-left: 1%;
+   border: 1px solid #f03625;
+   color:var(--ion-color-darkgrey);
+   text-align:center;
+   align-items: center;
+   vertical-align: middle;
+}
+.chartcard{
+border: 1px solid #f03625;
+margin-left:1%;
+ background : var(--ion-color-white); 
+ background: linear-gradient(135deg,#fff 0%, #ffffffbd 95%, #f03625 100%);
+ //background-image: linear-gradient(to top, #fad0c4 0%, #fff 100%);
+//background: linear-gradient(300deg, #a1c4fd 0%, #c2e9fbbd 100%);
+}
+.chartcard-right{
+  border: 1px solid #f03625;
+  margin-left:1%;
+  margin-right: 1%;
+   background : var(--ion-color-white); 
+   background: linear-gradient(135deg,#fff 0%, #ffffffbd 95%, #f03625 100%);
+  // background-image: linear-gradient(to top, #fad0c4 0%, #fff 100%);
+  }
+.red{
+  color:'##ed14#5b';
+}
+.yellow{
+  color:'##ffd300';
+}
+.green{
+  color:'##00a651';
+}
+.blue{
+  color:'##0054a6';
+}
+ul {list-style: none}
+li::before {content: "\2022"; color: var(--ion-color-white);
+  display: inline-block; width: 1em;
+  margin-left: -1em}
+.row-head{
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+
+div[scrollx="true"],
+    div[scrolly="true"] {
+      position: relative;
+      overflow: hidden;
+    }
+
+    div[scrollx="true"] {
+      overflow-x: auto;
+    }
+
+    div[scrolly="true"] {
+      overflow-y: auto;
+    }
+    #myFixZone {
+      height: 150px;
+    }

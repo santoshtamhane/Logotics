@@ -1,0 +1,160 @@
+:host{
+    
+    ion-content {
+      //   --background: var(--ion-color-light) url(../../../assets/imgs/abstract.jpg) no-repeat center center / cover;
+      // --background:var(--ion-color-dark);
+     
+
+--background:var(--ion-color-medium); // url("../../../assets/imgs/tiny-grid.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+        /* ion-item{
+        --background:var(--ion-color-light) url(../../../assets/imgs/triangle_strip2.png) repeat ;
+    } */
+    scroll-content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    ion-grid {
+        padding: 0;
+        height: 100%;
+    }
+    
+    ion-row {
+        flex: 1;
+  // padding-bottom: 10px;
+    }
+    ion-card{
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        margin: 2px !important;
+        // --background:var(--ion-color-white);
+        ion-card-title{
+            font-size: 1.2em !important; justify-content: center;color:var(--ion-color-tertiary);
+        }
+        
+        }
+    
+    }
+  
+    ion-col{
+         text-align: center;
+    }
+    .red{font-size: 250% !important;justify-content: center; color:var(--ion-color-danger)!important;} //#f04000;}
+
+    .yellow{font-size: 250% !important;justify-content: center; color:var(--ion-color-warning)!important;} //#f04000;}
+
+    .green{font-size: 250% !important;justify-content: center; color:var(--ion-color-success)!important;} //#f04000;}
+
+    .ion-1x { font-size: 4em !important;justify-content: center; 
+        color:var(--ion-color-secondary);
+    } //#f04000;}
+    .ion-x { font-size: 1.2em !important; justify-content: center;color:var(--ion-color-secondary);} // color:#a52a05}
+    .ion-1_5x { font-size: 2em !important;justify-content: center; color: var(--ion-color-secondary);} //#f04000;}
+    
+    ion-select{
+        max-width: 70% !important;
+    }
+    .designcard1{
+        --background:var(--ion-color-white);
+        // border-top: 5px solid #fce181;
+        border-top: 5px solid var(--ion-color-primary);
+        color:var(--ion-color-primary);
+        ion-label{
+            font-size:250%;
+            color:var(--ion-color-primary);
+        }
+    
+    
+    }
+    .designcard2{
+        --background:var(--ion-color-secondary-light);
+        // border-top: 5px solid #fce181;
+        border-top: 5px solid var(--ion-color-secondary);
+        color:var(--ion-color-secondary);
+        ion-label{
+            font-size:250%;
+            color:var(--ion-color-secondary);
+        }
+    
+    }
+    .designcard3{
+        --background:var(--ion-color-tertiary-light);
+        // border-top: 5px solid #fce181;
+        border-top: 5px solid var(--ion-color-tertiary);
+        color:var(--ion-color-tertiary);
+        ion-label{
+            font-size:250%;
+            color:var(--ion-color-tertiary);
+        }
+    
+    
+    }
+    
+    ion-toolbar {
+        --background: var(--ion-color-primary);
+        color: var(--ion-color-tertiary);
+    }
+    .chartcard{
+        --background: var(--ion-color-white);
+    background-attachment: fixed;
+    background-size: cover; 
+    border-top: 5px solid var(--ion-color-primary);
+    }
+
+    .insightcard{
+  
+        --background: var(--ion-color-secondary);
+    background-attachment: fixed;
+    background-size: cover; 
+    ion-card-title{
+        color: var(--ion-color-primary) !important;
+    }
+    }
+ ion-item{
+        --background:transparent;
+    }
+    .plaincard{
+        --background: var(--ion-color-primary) ;
+        
+            
+            .rowheader{
+                --background: var(--ion-color-success)!important;
+            }
+    
+  
+    border-top: 5px solid var(--ion-color-primary);
+    div[scrollx=true],div[scrolly=true] {
+        position: relative;
+        overflow: hidden;
+        
+      }
+      
+      div[scrollx=true] {
+        overflow-x: auto;
+      }
+      
+      div[scrolly=true] {
+        overflow-y: auto;
+        
+      }
+    }
+    #myFixZone {
+        height: 125px;
+        
+    }
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #80b6f4;
+        margin: 1em 0;
+        padding: 0;
+    }
+    p {
+        text-align: left;
+        margin: 0;
+        color: var(--ion-color-dark);
+    }
+    }

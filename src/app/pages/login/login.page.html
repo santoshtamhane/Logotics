@@ -1,0 +1,130 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-col size="7" class="left">
+      <!-- <img src='../../../assets/imgs/ESP Properties Logo-01.jpg'width=25%> -->
+      <img src="../../../assets/imgs/Picture1.png" width="35%" />
+      <ion-label class="welcome">
+        <h2>WELCOME TO</h2>
+        <h1>BRAND EXPOSURE ANALYTICS!</h1>
+      </ion-label>
+      <ion-label>
+        <br />
+        <br />
+      </ion-label>
+      <ion-row class="welcometext" text-wrap>
+        <ion-col>
+          <ion-row text-wrap>
+            <ion-col size="3" 
+              ><ion-icon name="list" style="zoom:300%" color = tertiary></ion-icon
+            ></ion-col>
+            <ion-col
+              size="9"
+              style="border-right:1px solid var(--ion-color-white)"
+              ><h2>List all your sponsorship events</h2></ion-col
+            >
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row text-wrap>
+            <ion-col size="3" 
+              ><ion-icon name="stopwatch" style="zoom:300%" color = tertiary></ion-icon
+            ></ion-col>
+            <ion-col
+              size="9"
+              style="border-right:1px solid var(--ion-color-white)"
+              ><h2>Measure your brand exposure durations</h2></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row text-wrap>
+            <ion-col size="3" 
+              ><ion-icon
+                name="qr-scanner"
+                style="zoom:300%;text-align:left"color= tertiary
+              ></ion-icon>
+            </ion-col>
+            <ion-col
+              size="9"
+              style="border-right:1px solid var(--ion-color-white)"
+              ><h2>Know the effectiveness of exposure display</h2></ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row class="welcometext1" text-wrap>
+        <ion-col>
+          <ion-row text-wrap>
+            <ion-col size="3" 
+              ><ion-icon name="cash" style="zoom:300%" color = tertiary></ion-icon
+            ></ion-col>
+            <ion-col
+              size="9"
+              style="border-right:1px solid var(--ion-color-white)"
+              ><h2>Report your media value equivalent</h2></ion-col
+            >
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row text-wrap>
+            <ion-col size="3" 
+              ><ion-icon name="trending-up" style="zoom:300%" color = tertiary></ion-icon
+            ></ion-col>
+            <ion-col
+              size="9"
+              style="border-right:1px solid var(--ion-color-white)"
+              ><h2>Observe exposure trends and patterns</h2></ion-col
+            >
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row text-wrap>
+            <ion-col size="3" 
+              ><ion-icon name="trending-down" style="zoom:300%" color = tertiary></ion-icon
+            ></ion-col>
+            <ion-col
+              size="9"
+              style="border-right:1px solid var(--ion-color-white)"
+              ><h2>Compare with social media and other exposures</h2></ion-col
+            >
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="5" class="right">
+      <img src="/assets/imgs/Picture2.png" width="35%" />
+      <ion-label class="welcome" style="text-align: left;">
+        <ion-text style="color:var(--ion-color-light)">LOGIN</ion-text>
+      </ion-label>
+      <form [formGroup]="loginForm" novalidate>
+        <ion-card>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="stacked" color="dark">USER ID</ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" color="dark">PASSWORD</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <ion-button
+              expand="block"
+              (click)="userLogin(loginForm)"
+              [disabled]="!loginForm.valid"
+              color="tertiary"
+            >
+              Login
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+
+        <!--  <ion-button expand="block" fill="clear" routerLink="/signup" color="danger">
+  Sign Up for a new account
+  </ion-button>
+    <ion-button expand="block" fill="clear" routerLink="/password-reset" color="light">
+  I forgot my password
+  </ion-button> -->
+      </form>
+    </ion-col>
+  </ion-grid>
+</ion-content>

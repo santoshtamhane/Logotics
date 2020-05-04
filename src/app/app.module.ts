@@ -6,16 +6,28 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { firebaseConfig } from './credentials';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PipesModule } from './pipes/pipes.module';
+import {ZoomChartPageModule} from './pages/zoom-chart/zoom-chart.module';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent], //  , EventGroupByPipe],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AppRoutingModule,
+    PipesModule,
+    ZoomChartPageModule
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,215 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size=3>
+      <ion-buttons>
+          <ion-back-button defaultHref="/report-list" routerDirection="backward"></ion-back-button>
+      </ion-buttons>
+</ion-col>
+<ion-col size=5>
+    <ion-title>{{event}}</ion-title>
+  </ion-col>
+    <ion-col size = 4>
+        <ion-buttons >
+            <ion-button slot=end><ion-icon name="print"></ion-icon></ion-button>
+        </ion-buttons>
+</ion-col>
+</ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+<ion-row class="picrow">
+<ion-col size=6>
+    <ion-card class= "tintedimage" [ngStyle]="{'background-image':'linear-gradient(#4cdef5bd,#881983bd),url(' + ikey + ')'}">
+      <ion-row class="row1">
+        <ion-card-title>
+            {{(avgIndex/100)*totalDuration*tvrate/(30*10000000) |currency :'INR'}} <ion-text color="light"> crores* </ion-text>
+        </ion-card-title>
+            </ion-row>
+        <ion-card-content>
+           <ion-row class="row1_1">
+            MEDIA VALUE EQUIVALENT               
+                
+           </ion-row>
+           
+                  <ion-row class="row2">
+                  <ion-text color="light">
+                  achieved by {{this.selectedBrand}} during {{event}}. Overall each match earned an average media value of <strong> {{avgIndex*durationpermatch*tvrate/(30*10000000) |currency :'INR'}}</strong> crores
+           at brand exposure duration rate of <strong> {{this.durationpermatch| number:'1.0-0'}}s </strong> per match. 
+                  </ion-text>
+                  <br/><ion-note color="dark">* Calculated at TV Ad Rate of {{tvrate/100000}} lakhs per 30 sec</ion-note>
+                </ion-row>
+               <ion-row style="justify-content: flex-end;" (click)="setRate()" class="row1">
+               <ion-note color= primary style="cursor:pointer;text-decoration: underline;">Change TV Ad Rate</ion-note>
+                  
+                  </ion-row> 
+          </ion-card-content>
+      </ion-card>
+</ion-col>
+<ion-col size=6>
+    <ion-row >
+        <ion-col>
+            <ion-card class="card3">
+                <ion-card-content >
+                     <span><img [src]=logo></span>
+                </ion-card-content>
+                <ion-row style="justify-content: flex-end;" color="primary">
+                        <ion-item>
+                          <ion-label>Change </ion-label>
+                          <ion-select placeholder="Brands" [(ngModel)]= "selectedBrand"  [compareWith]="compareWith" (ionChange)="changeBrand(selectedBrand)">
+                            <ion-select-option *ngFor="let brand of brandList | async">{{brand.Name}}</ion-select-option>
+                           </ion-select>
+                   </ion-item>
+                                </ion-row>
+           </ion-card>
+        
+        </ion-col>
+        <ion-col size=6>
+            <ion-card class="card1">
+                
+                  <ion-card-title>
+                    TOTAL DURATION (hh:mm:ss)
+                  </ion-card-title>
+                
+                  <ion-card-content>
+                    <ion-label class="ion-1_5x" >{{this.totalDuration|durationFormat: 's':'hhmmss'}}</ion-label>
+                  </ion-card-content>
+                
+               </ion-card>
+    
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size=6>
+      <ion-card [ngClass]="eeivenue" >
+       
+              <ion-card-title>
+                EXPOSURE EFFECTIVENESS
+              </ion-card-title>
+         
+          <ion-card-content >
+    <ion-label style="font-size:500%">{{this.avgIndex | number:'2.0-0'}} </ion-label>
+          </ion-card-content>
+          <ion-row style="text-align:center;height:50%;">
+              <ion-col style="background-color:#ff5992bd" ><ion-note color=light> &lt; 25 LOW</ion-note> </ion-col>
+              <ion-col style="background-color:#f4d555bd" ><ion-note color=light> 26-35 MEDIUM</ion-note></ion-col>
+              <ion-col style="background-color:#a4d555bd" ><ion-note color=light > >36 HIGH</ion-note></ion-col>
+          </ion-row>
+      </ion-card>
+        </ion-col>
+        <ion-col size=6>
+            <ion-card class = "chartcard" *ngIf="!seeinfoEEI">
+                    
+                <ion-card-content>
+                  <canvas #trendCanvas2></canvas>
+                </ion-card-content>
+                <ion-row style="justify-content: flex-end;">
+    <ion-button (click)="openModal(selectedBrand)" fill='clear' size= 'small'>
+        <ion-icon  slot ='icon-only' name="open" color=danger ></ion-icon>
+      </ion-button>
+                </ion-row>
+              </ion-card>
+    
+        </ion-col>
+      </ion-row>
+</ion-col>
+</ion-row>
+  <ion-row class="insightrow" >
+  
+    <ion-col size =3>
+        <ion-row>
+            <ion-card class="plaincard">
+                <ion-card-header class="header2">
+                  <ion-card-title>VENUE PERFORMANCE</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div scrollY="true" id="myFixZone">
+                  <ion-list *ngFor ="let e of sortedEEI">
+                    <ion-row>
+                      <ion-col size=7>
+                          <ion-row (click)="gotoVenue(e.venue)">
+                        <ion-text color="primary" style="cursor:pointer;text-decoration: underline;">{{e.venue}}</ion-text></ion-row></ion-col>
+                    <ion-col size=4>{{e.EEI | number:'2.0-0'}}</ion-col>
+                    <ion-col size=1 *ngIf="e.EEI>36">
+                      <ion-icon name='radio-button-on' color='success'></ion-icon>
+                    </ion-col>
+                    <ion-col size=1 *ngIf="e.EEI>25 && e.EEI <=36">
+                      <ion-icon name='radio-button-on' color='warning'></ion-icon>
+                    </ion-col>
+                    <ion-col size=1 *ngIf="e.EEI<25">
+                      <ion-icon name='radio-button-on' color='danger'></ion-icon>
+                    </ion-col>
+                  </ion-row>
+                  </ion-list>
+                </div>
+                </ion-card-content>
+              </ion-card>  
+        </ion-row>
+  
+      </ion-col>
+      <ion-col size =3>
+          <ion-card class="plaincard">
+              <ion-card-header class="header1">
+                <ion-card-title>ASSET PERFORMANCE</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                  <div scrollY="true" id="myFixZone">
+                <ion-list *ngFor ="let e of assetEEI">
+                  <ion-row>
+                    <ion-col size=7 >
+                        <ion-row (click)="gotoAsset(e.Category)">
+                            <ion-text color="primary" style="cursor:pointer;text-decoration: underline;">{{e.Category}}</ion-text></ion-row></ion-col>
+                  <ion-col size=4>{{e.EEI | number:'2.0-0'}}</ion-col>
+                  <ion-col size=1 *ngIf="e.EEI>36">
+                    <ion-icon name='radio-button-on' color='success'></ion-icon>
+                  </ion-col>
+                  <ion-col size=1 *ngIf="e.EEI>25 && e.EEI <=36">
+                    <ion-icon name='radio-button-on' color='warning'></ion-icon>
+                  </ion-col>
+                  <ion-col size=1 *ngIf="e.EEI<25">
+                    <ion-icon name='radio-button-on' color='danger'></ion-icon>
+                  </ion-col>
+                </ion-row>
+                </ion-list>
+                </div>
+              </ion-card-content>
+            </ion-card>
+
+      </ion-col>
+      <ion-col size =6>
+      <ion-card class="insightcard">
+        
+          
+        
+        <ion-card-content>
+          <ion-card-title>
+            WHAT BRAND INSIGHTS DO WE GAIN ?
+          </ion-card-title>
+          <ol type="1" style="text-align: justify">
+          <li>{{topEEIVenue}} is the most effective venue for {{this.selectedBrand}} in terms of quality of exposure,
+             prominence received on the screen and length of exposure to the logo.</li>
+          <li>{{selectedBrand}} received the maximum exposure at {{topVenue}}  </li>
+          </ol>
+          <ion-row style="justify-content: flex-end; font-size: 0.8em">
+  POWERED BY FORETELICS INSIGHTS
+          </ion-row>  
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+
+
+
+
+
+
+    
+</ion-grid>
+</ion-content>

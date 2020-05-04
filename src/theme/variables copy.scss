@@ -1,0 +1,104 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  --ion-color-primary: #5da5da;
+  --ion-color-primary-rgb: 93,165,218;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0,0,0;
+  --ion-color-primary-shade: #5291c0;
+  --ion-color-primary-tint: #6daede;
+
+  --ion-color-secondary: #decf3f;
+  --ion-color-secondary-rgb: 222,207,63;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0,0,0;
+  --ion-color-secondary-shade: #c3b637;
+  --ion-color-secondary-tint: #e1d452;
+
+  --ion-color-tertiary: #b276b2;
+  --ion-color-tertiary-rgb: 178,118,178;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0,0,0;
+  --ion-color-tertiary-shade: #9d689d;
+  --ion-color-tertiary-tint: #ba84ba;
+
+  --ion-color-success: #60bd68;
+  --ion-color-success-rgb: 96,189,104;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0,0,0;
+  --ion-color-success-shade: #54a65c;
+  --ion-color-success-tint: #70c477;
+
+  --ion-color-warning: #faa43a;
+  --ion-color-warning-rgb: 250,164,58;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0,0,0;
+  --ion-color-warning-shade: #dc9033;
+  --ion-color-warning-tint: #fbad4e;
+
+  --ion-color-danger: #f15854;
+  --ion-color-danger-rgb: 241,88,84;
+  --ion-color-danger-contrast: #000000;
+  --ion-color-danger-contrast-rgb: 0,0,0;
+  --ion-color-danger-shade: #d44d4a;
+  --ion-color-danger-tint: #f26965;
+
+  --ion-color-dark: #4d4d4d;
+  --ion-color-dark-rgb: 77,77,77;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255,255,255;
+  --ion-color-dark-shade: #444444;
+  --ion-color-dark-tint: #5f5f5f;
+
+  --ion-color-medium: #cccccc;
+  --ion-color-medium-rgb: 204,204,204;
+  --ion-color-medium-contrast: #000000;
+  --ion-color-medium-contrast-rgb: 0,0,0;
+  --ion-color-medium-shade: #b4b4b4;
+  --ion-color-medium-tint: #d1d1d1;
+
+  --ion-color-light: #efefef;
+  --ion-color-light-rgb: 239,239,239;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0,0,0;
+  --ion-color-light-shade: #d2d2d2;
+  --ion-color-light-tint: #f1f1f1;
+
+  
+    --ion-color-white: #ffffff;
+    --ion-color-darkgrey: #434a54;
+    --ion-color-darkbk:#16253d;
+}
+@font-face {
+  font-family: 'JosefinSans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/JosefinSans-Regular.ttf');
+}
+:root{
+//--ion-font-family: 'Open Sans', sans-serif;
+--ion-font-family:'JosefinSans', sans-serif !important;
+}
+ion-menu {
+ --background: var(--ion-color-dark);
+  }
+  .split-pane-md.split-pane-visible>.split-pane-side {
+    min-width: 175px;
+    max-width: 10%;
+    border-right: var(--border);
+    border-left: 0;
+    
+}
+
+
+  ion-list {/* optional, but it needs when you use gradient as a background color.*/
+    --ion-background-color: transparent;
+  }
+
+  .modal-class .modal-wrapper {
+    width: 80%;
+    position: absolute; 
+    display: block;  
+ }

@@ -1,0 +1,32 @@
+<ion-content padding>
+  <img src="http://placehold.it/300x100" />
+  <form [formGroup]="signupForm" novalidate>
+  <ion-item>
+  <ion-label position="stacked">Name</ion-label>
+  <ion-input
+  formControlName="fullName"
+  type="text"
+  placeholder="What's your name stranger?"
+  > </ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label position="stacked">Email</ion-label>
+  <ion-input formControlName="email" type="email" placeholder="Your email
+  address">
+  </ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label position="stacked">Password</ion-label>
+  <ion-input formControlName="password" type="password" placeholder="Your
+  password">
+  </ion-input>
+  </ion-item>
+  <ion-button
+  expand="block"
+  (click)="userSignup(signupForm)"
+  [disabled]="!signupForm.valid"
+  >
+  Create an Account
+  </ion-button>
+  </form>
+  </ion-content>

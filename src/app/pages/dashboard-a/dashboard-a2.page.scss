@@ -1,0 +1,247 @@
+
+    
+    ion-content {
+--background:#edeae5 ;
+    }
+    
+   ion-grid {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        height: 100%;
+    }
+
+    .picrow{
+        flex:2;
+       
+      .tintedimage{
+        display: flex;
+        flex-direction: column;
+        padding:0;
+        
+.row1{
+    flex:1;
+    font-size: 4em;
+    justify-content: center; 
+        color:#4cdef5;
+      ion-card-title{
+           top:12%;
+            position:relative;
+            text-align: left;
+            font-size: 150% !important; 
+            justify-content: left;
+            color:#fff;
+        }    
+}
+.row1_1{
+    flex:1;
+    font-size: 2em;
+    justify-content: center; 
+        color:#fce181;  
+        
+}
+.row2{
+    flex:2;
+}
+
+
+  background-attachment: fixed;
+  background-size: contain;
+        }
+    
+    }
+    .insightrow{
+        flex:1;
+        
+    }
+
+    /* */
+    ion-card{
+        height:100%;
+        width: 100% !important;
+        margin: 2px !important;
+
+        }
+    
+    
+    ion-col{
+         text-align: center;
+    }
+    .red{ --background:linear-gradient(225deg, #f0f0f069 35%,#ff5992bd 100%),url('../../../assets/imgs/dart-board.jpg');
+        
+        font-size:250%;
+        ion-card-content{
+            padding-top:5%;
+            color:var(--ion-color-danger);
+            text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+        } 
+        ion-card-title{
+            color: var(--ion-color-light);
+           
+        }
+   
+    } //#f04000;}
+
+    .yellow{--background:linear-gradient(#f0f0f069,#f4d555bd),url('../../../assets/imgs/dart-board.jpg');
+        ion-card-content{
+            padding-top:5%;
+            color:var(--ion-color-warning);
+            text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+        } 
+        ion-card-title{
+            color:var(--ion-color-light);
+        }} //#f04000;}
+
+    .green{--background:linear-gradient(#f0f0f069,#a4d555bd),url('../../../assets/imgs/dart-board.jpg');
+        ion-card-content{
+            padding-top:5%;
+            color:var(--ion-color-success);
+            text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+ 
+        } 
+        ion-card-title{
+           
+            color:var(--ion-color-light);
+        }
+    } //#f04000;}
+
+    
+    .ion-x { font-size: 1.2em !important; justify-content: center;color:#fce181;} // color:#a52a05}
+    .ion-1_5x { font-size: 4em !important;justify-content: center; color: #881983;} //#f04000;}
+    .card1icon { font-size: 4em !important;color:#a4d555bd;}
+    .card2icon { font-size: 4em !important;color:#881983bd;}
+    ion-select{
+        max-width: 70% !important;
+    }
+    .designcard1{
+        --background:#fff;
+        // border-top: 5px solid #fce181;
+        border-bottom: 5px solid #4cdef5;
+        color:#4cdef5;
+        ion-label{
+            font-size:250%;
+            color:var(--ion-color-primary);
+        }
+    
+    }
+    .insightcard{
+        --background:#a4d555; 
+        color:#fff;
+        ion-card-title{
+            color:var(--ion-color-light);
+        }
+    }
+    .chartcard{
+--background: linear-gradient(315deg, #a4d55569 35%, #ffffff 100%);
+
+ion-card-title{
+    color:#881983;
+    
+}
+
+}
+    .card2{
+--background: linear-gradient(#88198369,#881983);
+/*--background: -moz-linear-gradient(45deg, #881983 35%, rgba(255,255,255,1) 100%);
+--background: -webkit-linear-gradient(45deg, #881983 35%, rgba(255,255,255,1) 100%);
+--background: linear-gradient(45deg, #881983 35%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#881983",endColorstr="#ffffff",GradientType=1);
+height:100%;
+        width:90%;*/
+ion-card-content{
+    padding-top:5%;
+} 
+ion-card-title{
+    color: var(--ion-color-light);
+}
+color:var(--ion-color-light);
+}   
+       .card3{
+        --background: #fce181bd;
+        --background: -moz-linear-gradient(135deg, #fce181bd 35%, #fff 100%);
+        --background: -webkit-linear-gradient(135deg, #fce181bd 35%, #fff 100%);
+        --background: linear-gradient(135deg, #fce181bd 35%, #fff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fce181bd",endColorstr="#ffffff",GradientType=1);
+        ion-item{
+            --background: transparent;
+            color: var(--ion-color-primary);
+
+        }  
+        span {
+            display: inline-block;
+        }
+        img {
+            height: 90%;
+        }
+    }
+       ion-toolbar {
+        --background: linear-gradient(90deg, #4cdff541,#4cdef5);
+        color: #881983;
+    }
+    .card1{
+        // background: linear-gradient(#4cdef569, #4cdef5);
+        background: -moz-linear-gradient(225deg, #4cdef569 0%, #ffffff 100%), url("../../../assets/imgs/time.jpg");
+        background: -webkit-linear-gradient(225deg, #4cdef569 0%, #ffffff 100%), url("../../../assets/imgs/time.jpg");
+        background: linear-gradient(225deg, #4cdef569 0%, #ffffff 100%), url("../../../assets/imgs/time.jpg");
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4cdef5",endColorstr="#ffffff",GradientType=1);
+        background-size:cover;
+        ion-card-content{
+            padding-top:5%;
+        }
+        ion-card-title{
+            color: #841983;
+        }
+
+    }
+    .plaincard{
+    --background:  url("../../../assets/imgs/tiny-grid.png");
+    border-top: 5px solid #841983;
+    
+    .header1{
+        // --background: #fce181;
+   ion-card-title{
+        font-size: 1.2em !important; justify-content: left;color:#841983;
+    }
+    }
+    .header2{
+       // --background: #fce181;
+        ion-card-title{
+            font-size: 1.2em !important; justify-content: left;color:#841983;
+        } 
+    }
+    div[scrollx=true],div[scrolly=true] {
+        position: relative;
+        overflow: hidden;
+        
+      }
+      
+      div[scrollx=true] {
+        overflow-x: auto;
+      }
+      
+      div[scrolly=true] {
+        overflow-y: auto;
+        
+      }
+    }
+    #myFixZone {
+        height: 175px;
+        
+    }
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #80b6f4;
+        margin: 1em 0;
+        padding: 0;
+    }
+    p {
+        text-align:justify;
+        // padding:10;
+        color: var(--ion-color-light);
+    }
+
+    

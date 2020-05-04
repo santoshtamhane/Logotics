@@ -1,0 +1,29 @@
+ion-content {
+    --background: linear-gradient(135deg,  #77aa88  0%, #77aa88bd 100%),url('../../../assets/imgs/olympic-stadium-809504_1920.jpg');
+
+
+ion-item-divider{
+    --background: var(--ion-color-primary-tint);
+    
+}
+h1{
+    color:var(--ion-color-secondary);
+}
+.spinner-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+ion-label{
+    color: var(--ion-color-primary);
+    font-size:1em;
+    cursor: pointer;
+}
+
+.evenClass {
+    background-color: green;
+}
+.oddClass {
+    background-color: blue;
+}
+}

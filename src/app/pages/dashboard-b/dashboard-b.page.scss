@@ -1,0 +1,306 @@
+ion-content {
+  --background: linear-gradient(135deg,  #cce5d1  0%, #88aa77bd 100%),url('../../../assets/imgs/stadium-918830_1920.jpg');  
+  background-size: contain;
+   background-repeat: no-repeat;
+   }
+   ion-toolbar {
+    --background: var(--ion-color-dark);
+      
+ }
+ ion-grid {
+   height:100%;
+   display: flex;
+  flex-direction: column;
+ 
+ }
+ ion-item{
+   --ion-background-color:transparent !important;
+   color:var(--ion-color-white);
+   ion-label{
+     color:var(--ion-color-primary);
+     font-size: 1.2rem;
+   }
+ }
+ .col{
+   display: flex;
+   flex-direction: column;
+   height:100%;
+ }
+ .top-row{
+   flex:1;
+   text-align: center;
+   margin-bottom: 3%;
+  padding:0%;
+ }
+ .middle-row{
+   flex:2;
+   margin-bottom: 3%;
+  padding-bottom: 0;
+ 
+ }
+ .bottom-row{
+   flex:3;
+   margin-bottom: 3%;
+  padding-bottom: 0;
+ 
+ }
+ .label-2x {
+   font-size: 3.5em !important;
+   font-weight: bold;
+   color:  var(--ion-color-white);
+  // background: -webkit-linear-gradient(#27d271, #005e6d);
+   //-webkit-background-clip: text;
+   // -webkit-text-fill-color: transparent;
+   text-align: center;
+ }
+ .label-2x_danger {
+   font-size: 2em !important;
+   font-weight: bold;
+   color: red;
+   text-align: center;
+ }
+ .label-2x_warning {
+   font-size: 2em !important;
+   font-weight: bold;
+   color: yellow;
+   text-align: center;
+ }
+ .label-2x_success {
+   font-size: 2em !important;
+   font-weight: bold;
+   color: green;
+   text-align: center;
+ } 
+ 
+ .card1{
+  background-color: var(--ion-color-primary);
+   // backdrop-filter: blur(5px);
+ margin-left: 1%;
+ 
+   border-radius:1rem;
+    font-weight: bold;
+   border: 2px solid var(--ion-color-primary);
+ }
+ .card2{
+  background-color:var(--ion-color-tertiary);
+   // backdrop-filter: blur(5px); 
+   //margin-left: 3%;
+   margin-right: 3%;
+    border-radius:1rem;
+     justify-content: center;
+     text-align: center;
+  font-weight: bold;
+  border: 2px solid var(--ion-color-tertiary);
+  }
+  .card3{
+  background-color: var(--ion-color-secondary);
+   // backdrop-filter: blur(5px);
+   margin-left: 3%;
+   margin-right: 3%;
+   border-radius: 1rem;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+   border: 2px solid var(--ion-color-secondary);
+ }
+.card1_leftmost{
+// background-image: linear-gradient(to top, #fff 0%, #fdfba15e 80%,#fdfba1bd 100%);
+background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-primary) 100%);
+
+   // border: 2px solid var(--ion-color-primary);
+   backdrop-filter: blur(3px);
+   margin-left: 1%;
+   margin-right: 3%;
+   justify-content: center;
+   text-align: center;
+   border-radius: 15px;
+font-weight: bold;
+color:var(--ion-color-dark);
+}
+.card1_left{
+  background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-primary) 100%);
+
+    margin-left: 1%;
+    justify-content: center;
+    text-align: center;
+   border-radius: 15px;
+font-weight: bold;
+color:var(--ion-color-primary);
+ }
+.card1_middle{
+  background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-primary) 100%);
+
+    margin-left: 1%;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+ font-weight: bold;
+ color:var(--ion-color-primary);
+
+}
+.card1_right{
+  background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-primary) 100%);
+
+ backdrop-filter: blur(3px);
+   margin-left: 1%;
+   justify-content: center;
+   text-align: center;
+   // border: 2px solid var(--ion-color-primary);
+   border-radius: 15px;
+font-weight: bold;
+color:var(--ion-color-dark);
+}
+
+.card2_2{
+  //background-image: linear-gradient(to bottom, #89f7fe 0%, #66a6ff 100%);
+  background-image: linear-gradient(165deg, #a1c4fd 0%, #c2e9fb 100%);
+  margin-left: 3%;
+}
+.card2_3{
+  background: #FDC830bd;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(210deg, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(210deg, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+  background: #FDFC47;  /* fallback for old browsers */
+background: -webkit-linear-gradient(300deg, #24FE41, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(300deg, #24FE41, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.summary-card{
+  //background-image: url('../../../assets/imgs/cardbk1.jpg');
+ background-color: var(--ion-color-white);
+  // backdrop-filter: blur(5px);
+ // margin-right: 3%;
+  // border: 2px solid var(--ion-color-primary);
+  border-radius:15px;
+  color:var(--ion-color-drkgrey);
+}
+.hero_card{
+  //background-image:linear-gradient(to bottom, #B6C122 0%, #ffffff69 95%, #ffffffed 100%);
+  background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-secondary) 100%);
+
+  // backdrop-filter: blur(5px);
+ 
+ // background-image:linear-gradient(120deg, #ffffffed 0%, #f0362569 95%, #f03625 100%), url('../../../assets/imgs/soccer.jpg');
+  // background:var(--ion-color-primary);
+   //background-size: cover contain;
+   //background-repeat: no-repeat;
+   //background-position: center center;
+ margin-bottom: 3%;
+  // border: 2px solid var(--ion-color-primary);
+   border-radius:15px;
+   color:var(--ion-color-darkgrey);
+   text-align:left;
+   align-items: center;
+   vertical-align: middle;
+}
+.chartcard{
+  // background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1bd 100%);
+  background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-primary) 100%);
+ 
+ // background-color: var(--ion-color-white);
+ //background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 3%, #f3e7e9 100%);
+// background-image: linear-gradient(to top, #abecd6 0%, #fbed96 100%);
+
+
+backdrop-filter: blur(3px);
+    margin-left: 1%;
+    justify-content: center;
+    text-align: center;
+ // border:2px solid var(--ion-color-primary);
+ border-radius: 15px;
+ font-weight: bold;
+ color: var(--ion-color-primary);
+}
+.trend_chartcard{
+  //background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+//// backdrop-filter:blur(5px);
+  background-color: var(--ion-color-white);
+  // backdrop-filter: blur(2px);
+    margin-left: 1%;
+    margin-right: 3%;
+    justify-content: center;
+    text-align: center;
+   // border:2px solid var(--ion-color-primary);
+    border-radius: 15px;
+ font-weight: bold;
+ color:var(--ion-color-primary);
+ display: flex;
+ flex-direction: column;
+ height:100%;
+}
+.chartcard-right{
+ // background-image: linear-gradient(to top, #fff 0%, #fdfba15e 80%,#fdfba1bd 100%);
+ //background-image: url('../../../assets/imgs/cardbk.jpg');
+ // background-color: #0000005e;
+ background-image: linear-gradient(120deg, var(--ion-color-light) 0%, #ffffff5e 98%, var(--ion-color-primary) 100%);
+backdrop-filter: blur(5px);
+   margin-left: 3%;
+   margin-right:3%;
+   justify-content: center;
+   text-align: center;
+  // border:2px solid var(--ion-color-secondary);
+   border-radius: 15px;
+font-weight: bold;
+
+  }
+.red{
+  color:'##ed14#5b';
+}
+.yellow{
+  color:'##ffd300';
+}
+.green{
+  color:'##00a651';
+}
+.blue{
+  color:'##0054a6';
+}
+ul {list-style: none}
+li::before {content: "\2022"; color: var(--ion-color-tertiary);
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em}
+.row-head{
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+svg {
+  fill: "#fff";
+  border: 5px solid '#fff';
+}
+div[scrollx="true"],
+    div[scrolly="true"] {
+      position: relative;
+      overflow: hidden;
+    }
+
+    div[scrollx="true"] {
+      overflow-x: auto;
+    }
+
+    div[scrolly="true"] {
+      overflow-y: auto;
+    }
+    #myFixZone {
+      height: 150px;
+    }
+
+    .card5{
+      border: 2px solid var(--ion-color-secondary);
+     font-size: 1.5rem;
+      height:150px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:150px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    color:var(--ion-color-secondary);
+        backdrop-filter: blur(5px);
+    }
